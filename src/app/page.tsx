@@ -150,84 +150,203 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-full max-w-6xl px-4 pb-20 pt-8 sm:px-8">
+<motion.section
+  id="top"
+  initial="hidden"
+  animate="show"
+  variants={container}
+  className="section-anchor relative mt-8 overflow-hidden rounded-3xl border border-[#30363d] bg-gradient-to-br from-[#161b22] via-[#0d1117] to-[#161b22] p-7 shadow-2xl sm:p-10 lg:p-12"
+>
+  {/* Subtle background glow */}
+  <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#58a6ff]/10 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#58a6ff]/5 blur-3xl" />
 
-        <motion.section
-          id="top"
-          initial="hidden"
-          animate="show"
-          variants={container}
-          className="section-anchor mt-10 grid gap-8 rounded-2xl border border-[#30363d] bg-[#161b22] p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr]"
+  <div className="relative grid items-center gap-10 lg:grid-cols-[1.25fr_0.75fr]">
+
+    {/* LEFT SIDE */}
+    <motion.div variants={fadeUp} className="space-y-6">
+
+      <div className="inline-flex items-center gap-2 rounded-full border border-[#30363d] bg-[#0d1117] px-3 py-1.5">
+        <span className="h-2 w-2 rounded-full bg-emerald-400" />
+        <span className="font-mono text-xs text-[#9da7b3]">
+          Open to opportunities
+        </span>
+      </div>
+
+      <div className="space-y-3">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-[#58a6ff]">
+          CSE (Data Science) Student
+        </p>
+
+        <h1 className="font-mono text-4xl font-bold tracking-tight text-[#e6edf3] sm:text-5xl lg:text-6xl">
+          {data.name || "Keshar Sahu"}
+        </h1>
+
+        <p className="max-w-2xl text-lg font-medium text-[#c9d1d9] sm:text-xl">
+          Python • Data Analytics • AI/ML • Full Stack Development
+        </p>
+      </div>
+
+      <p className="max-w-2xl text-sm leading-7 text-[#9da7b3] sm:text-base">
+        {data.intro}
+      </p>
+
+      {/* BUTTONS */}
+      <div className="flex flex-wrap gap-3 pt-2">
+
+        <a href="#projects">
+          <Button size="lg" className="gap-2">
+            View Projects
+          </Button>
+        </a>
+
+        <a
+          href={data.resumeUrl || "#"}
+          target="_blank"
+          rel="noreferrer"
         >
-          <motion.div variants={fadeUp} className="space-y-5">
-            {!data.name && (
-              <p className="inline-flex rounded-md border border-[#30363d] bg-[#0d1117] px-3 py-1 text-xs text-[#9da7b3]">
-                Resume content pending in src/data/portfolio.ts
-              </p>
-            )}
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#58a6ff]">Software Engineer</p>
-            <h1 className="font-mono text-4xl leading-tight text-[#e6edf3] sm:text-5xl">
-              {data.name || "Resume Data Pending"}
-            </h1>
-            <p className="text-lg text-[#c9d1d9]">{data.role}</p>
-            <p className="max-w-2xl text-base leading-8 text-[#e6edf3] sm:text-lg">
-              Crafting modern applications, solving complex problems, and turning ideas into impactful products.
-            </p>
-            <p className="max-w-2xl text-sm leading-7 text-[#9da7b3] sm:text-base">
-              {data.intro || "Resume intro add karo, phir yaha clean premium hero copy render hoga."}
-            </p>
-            <div className="flex flex-wrap gap-3 pt-1">
-              <a href={data.resumeUrl || "#"}>
-                <Button size="lg">Download Resume</Button>
-              </a>
-              <a href="#contact">
-                <Button size="lg" variant="ghost">
-                  Contact
-                </Button>
-              </a>
-            </div>
-            <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.title} className="rounded-lg border border-[#30363d] bg-[#0d1117] px-3 py-2">
-                  <p className="font-mono text-lg text-[#e6edf3]">{s.value}</p>
-                  <p className="text-xs text-[#9da7b3]">{s.title}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <Button size="lg" variant="ghost" className="border border-[#30363d]">
+            Download Resume
+          </Button>
+        </a>
 
-          <motion.div variants={fadeUp} className="space-y-4">
-            <Card className="p-5">
-              <div className="mb-4 flex items-center gap-3">
-                {data.profileImage ? (
-                  <Image
-                    src={data.profileImage}
-                    alt={data.name || "Profile"}
-                    width={56}
-                    height={56}
-                    className="h-14 w-14 rounded-full border border-[#30363d] object-cover"
-                  />
-                ) : (
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#30363d] bg-[#0d1117] font-mono text-lg text-[#e6edf3]">
-                    {initials(data.name || "RD")}
-                  </div>
-                )}
-                <div>
-                  <p className="font-medium text-[#e6edf3]">{data.name || "Resume Data Pending"}</p>
-                  <p className="text-xs text-[#9da7b3]">{data.location || "Location from resume"}</p>
-                </div>
-              </div>
-              <div className="space-y-2 text-sm text-[#9da7b3]">
-                {data.email && <p>{data.email}</p>}
-                {data.phone && <p>{data.phone}</p>}
-                {data.codingProfiles.github && <p>{data.codingProfiles.github}</p>}
-              </div>
-            </Card>
+      </div>
 
-            <Card className="overflow-hidden p-0">
-              <Image src="/dev-iso.svg" alt="Developer illustration" width={720} height={560} className="h-auto w-full" />
-            </Card>
-          </motion.div>
-        </motion.section>
+      {/* SOCIAL LINKS */}
+      <div className="flex flex-wrap items-center gap-5 pt-1 text-sm">
+
+        {data.codingProfiles.github && (
+          <a
+            href={data.codingProfiles.github}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#9da7b3] transition-colors hover:text-[#e6edf3]"
+          >
+            GitHub ↗
+          </a>
+        )}
+
+        {data.codingProfiles.linkedin && (
+          <a
+            href={data.codingProfiles.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#9da7b3] transition-colors hover:text-[#e6edf3]"
+          >
+            LinkedIn ↗
+          </a>
+        )}
+
+        {data.codingProfiles.leetcode && (
+          <a
+            href={data.codingProfiles.leetcode}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#9da7b3] transition-colors hover:text-[#e6edf3]"
+          >
+            LeetCode ↗
+          </a>
+        )}
+
+      </div>
+
+      {/* STATS */}
+      <div className="grid grid-cols-2 gap-3 pt-3 sm:grid-cols-4">
+        {stats.map((s) => (
+          <div
+            key={s.title}
+            className="rounded-xl border border-[#30363d] bg-[#0d1117]/80 px-4 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-[#58a6ff]/50"
+          >
+            <p className="font-mono text-xl font-semibold text-[#e6edf3]">
+              {s.value}
+            </p>
+
+            <p className="mt-1 text-xs text-[#8b949e]">
+              {s.title}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </motion.div>
+
+    {/* RIGHT SIDE */}
+    <motion.div
+      variants={fadeUp}
+      className="relative flex flex-col gap-4"
+    >
+
+      {/* PROFILE CARD */}
+      <Card className="border-[#30363d] bg-[#161b22]/90 p-6 shadow-xl backdrop-blur">
+        <div className="flex items-center gap-4">
+
+          {data.profileImage ? (
+            <Image
+              src={data.profileImage}
+              alt={data.name || "Profile"}
+              width={72}
+              height={72}
+              className="h-[72px] w-[72px] rounded-2xl border border-[#30363d] object-cover"
+            />
+          ) : (
+            <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-[#30363d] bg-[#0d1117] font-mono text-xl font-semibold text-[#e6edf3]">
+              {initials(data.name || "KS")}
+            </div>
+          )}
+
+          <div>
+            <p className="text-lg font-semibold text-[#e6edf3]">
+              {data.name}
+            </p>
+
+            <p className="mt-1 text-sm text-[#8b949e]">
+              {data.location}
+            </p>
+          </div>
+
+        </div>
+
+        <div className="mt-6 space-y-3 border-t border-[#30363d] pt-5">
+
+          <p className="break-all text-sm text-[#9da7b3]">
+            {data.email}
+          </p>
+
+          <p className="text-sm text-[#9da7b3]">
+            {data.phone}
+          </p>
+
+          <a
+            href={data.codingProfiles.github}
+            target="_blank"
+            rel="noreferrer"
+            className="block text-sm text-[#58a6ff] hover:underline"
+          >
+            github.com/keshar3085
+          </a>
+
+        </div>
+      </Card>
+
+      {/* DEVELOPER ILLUSTRATION */}
+      <Card className="overflow-hidden border-[#30363d] bg-[#0d1117] p-0">
+        <Image
+          src="/dev-iso.svg"
+          alt="Developer illustration"
+          width={720}
+          height={560}
+          className="h-auto w-full opacity-90 transition-transform duration-500 hover:scale-[1.02]"
+        />
+      </Card>
+
+    </motion.div>
+
+  </div>
+</motion.section>
+
+        
+             
+               
 
         <Section id="about" title="About">
           <Card className="p-7">
