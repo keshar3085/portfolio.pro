@@ -103,52 +103,90 @@ export default function Home() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-[#30363d]/80 bg-[#0d1117]/72 shadow-[0_8px_24px_rgba(0,0,0,0.22)] backdrop-blur-lg">
-        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-8">
-          <a href="#top" className="flex items-center gap-2.5 font-mono text-sm font-semibold text-[#e6edf3]">
-            {data.profileImage ? (
-              <Image
-                src={data.profileImage}
-                alt={data.name || "Profile"}
-                width={26}
-                height={26}
-                className="h-6.5 w-6.5 rounded-full border border-[#30363d] object-cover"
-              />
-            ) : (
-              <div className="flex h-6.5 w-6.5 items-center justify-center rounded-full border border-[#30363d] bg-[#161b22] font-mono text-[9px] text-[#e6edf3]">
-                {initials(data.name || "RD")}
-              </div>
-            )}
-            <span>{data.name ? data.name : "portfolio"}</span>
-          </a>
-          <ul className="hidden items-center gap-6 text-sm text-[#9da7b3] md:flex">
-            {navItems.map((item) => {
-              const id = sectionId(item);
-              const isActive = activeSection === id;
-              return (
-                <li key={item} className="relative py-1.5">
-                  <a
-                    href={`#${id}`}
-                    className={`transition-colors duration-300 hover:text-[#e6edf3] ${
-                      isActive ? "text-[#e6edf3] font-medium" : "text-[#9da7b3]"
-                    }`}
-                  >
-                    {item}
-                  </a>
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeTabUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#58a6ff]"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </header>
+      <header className="sticky top-0 z-50 w-full border-b border-[#30363d]/70 bg-[#0d1117]/85 backdrop-blur-xl">
+  <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-8">
 
+    {/* Logo / Name */}
+    <a
+      href="#top"
+      className="group flex items-center gap-3"
+    >
+      {data.profileImage ? (
+        <Image
+          src={data.profileImage}
+          alt={data.name || "Profile"}
+          width={34}
+          height={34}
+          className="h-8 w-8 rounded-full border border-[#30363d] object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      ) : (
+        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#30363d] bg-[#161b22] font-mono text-[10px] font-semibold text-[#e6edf3]">
+          {initials(data.name || "KS")}
+        </div>
+      )}
+
+      <div className="hidden sm:block">
+        <p className="font-mono text-sm font-semibold text-[#e6edf3]">
+          {data.name || "Keshar Sahu"}
+        </p>
+        <p className="text-[10px] text-[#8b949e]">
+          Data Science
+        </p>
+      </div>
+    </a>
+
+    {/* Navigation */}
+    <div className="flex items-center gap-5">
+
+      <ul className="hidden items-center gap-6 text-sm md:flex">
+        {navItems
+          .filter((item) => item !== "Coding Dashboard")
+          .map((item) => {
+            const id = sectionId(item);
+            const isActive = activeSection === id;
+
+            return (
+              <li key={item} className="relative py-2">
+                <a
+                  href={`#${id}`}
+                  className={`transition-colors duration-200 ${
+                    isActive
+                      ? "font-medium text-[#e6edf3]"
+                      : "text-[#8b949e] hover:text-[#e6edf3]"
+                  }`}
+                >
+                  {item}
+                </a>
+
+                {isActive && (
+                  <motion.div
+                    layoutId="activeTabUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-[#58a6ff]"
+                    transition={{
+                      type: "spring",
+                      stiffness: 350,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </li>
+            );
+          })}
+      </ul>
+
+      {/* Resume button */}
+      <a
+        href={data.resumeUrl || "#"}
+        target="_blank"
+        rel="noreferrer"
+        className="hidden rounded-lg border border-[#30363d] bg-[#161b22] px-4 py-2 text-xs font-medium text-[#e6edf3] transition-all duration-200 hover:border-[#58a6ff]/60 hover:bg-[#21262d] sm:inline-flex"
+      >
+        Resume ↗
+      </a>
+
+    </div>
+  </nav>
+</header>
       <main className="mx-auto w-full max-w-6xl px-4 pb-20 pt-8 sm:px-8">
 <motion.section
   id="top"
