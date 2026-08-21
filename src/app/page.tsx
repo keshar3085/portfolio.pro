@@ -387,26 +387,90 @@ export default function Home() {
                
 
         <Section id="about" title="About">
-          <Card className="p-7">
-            <p className="text-sm leading-7 text-[#c9d1d9] sm:text-base">
-              {data.about || "About section resume se add karo, fake content nahi dikhayenge."}
+  <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+
+    {/* About Card */}
+    <Card className="group relative overflow-hidden p-7">
+      <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-[#58a6ff]/5 blur-2xl transition-all duration-500 group-hover:bg-[#58a6ff]/10" />
+
+      <div className="relative">
+        <div className="mb-5 flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#30363d] bg-[#0d1117] font-mono text-sm text-[#58a6ff]">
+            KS
+          </span>
+
+          <div>
+            <p className="text-sm font-semibold text-[#e6edf3]">
+              About Me
             </p>
-            {data.education.length > 0 && (
-              <div className="mt-6 border-t border-[#30363d] pt-5">
-                <p className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-[#58a6ff]">Education</p>
-                <div className="space-y-4">
-                  {data.education.map((item) => (
-                    <div key={`${item.institution}-${item.degree}`}>
-                      <p className="font-semibold text-[#e6edf3]">{item.degree}</p>
-                      <p className="text-sm text-[#9da7b3]">{item.institution}</p>
-                      <p className="text-xs text-[#8b949e]">{item.duration}</p>
-                    </div>
-                  ))}
+            <p className="text-xs text-[#8b949e]">
+              Data Science • Development • Analytics
+            </p>
+          </div>
+        </div>
+
+        <p className="max-w-2xl text-sm leading-8 text-[#b1bac4] sm:text-base">
+          {data.about ||
+            "About section resume se add karo, fake content nahi dikhayenge."}
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {["Python", "Data Analysis", "AI/ML", "Full Stack"].map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-[#30363d] bg-[#0d1117] px-3 py-1.5 text-xs text-[#9da7b3] transition-colors hover:border-[#58a6ff]/50 hover:text-[#e6edf3]"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Card>
+
+    {/* Education Card */}
+    {data.education.length > 0 && (
+      <Card className="p-7">
+        <div className="mb-6">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#58a6ff]">
+            Education
+          </p>
+
+          <h3 className="mt-2 text-xl font-semibold text-[#e6edf3]">
+            Academic Background
+          </h3>
+        </div>
+
+        <div className="space-y-6">
+          {data.education.map((item, index) => (
+            <div
+              key={`${item.institution}-${item.degree}`}
+              className="relative border-l border-[#30363d] pl-5"
+            >
+              <span className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full border-2 border-[#58a6ff] bg-[#0d1117]" />
+
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <div>
+                  <p className="font-semibold leading-6 text-[#e6edf3]">
+                    {item.degree}
+                  </p>
+
+                  <p className="mt-1 text-sm text-[#9da7b3]">
+                    {item.institution}
+                  </p>
                 </div>
+
+                <span className="shrink-0 font-mono text-xs text-[#8b949e]">
+                  {item.duration}
+                </span>
               </div>
-            )}
-          </Card>
-        </Section>
+            </div>
+          ))}
+        </div>
+      </Card>
+    )}
+
+  </div>
+</Section>
 
         <Section id="skills" title="Tech Stack">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
