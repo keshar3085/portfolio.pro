@@ -24,12 +24,12 @@ export type EducationItem = {
 
 export type SkillGroup = {
   title:
-  | "Languages"
-  | "Frontend"
-  | "Backend"
-  | "Databases"
-  | "Tools"
-  | "Technologies";
+    | "Languages"
+    | "Frontend"
+    | "Backend"
+    | "Databases"
+    | "Tools"
+    | "Technologies";
   skills: string[];
 };
 
@@ -56,61 +56,107 @@ export type PortfolioData = {
   achievements: string[];
 };
 
-// Fill this object strictly from your resume (no generated content).
 export const portfolioData: PortfolioData = {
   name: "Keshar Sahu",
+
   role: "B.Tech CSE (Data Science) Student | Aspiring Data Analyst",
+
   intro:
-    "Undergraduate student at SSTC with hands-on experience in Python, data analysis, and full-stack development. Aspiring data analyst seeking an internship to apply and expand real-world data analysis skills.",
+    "B.Tech CSE (Data Science) student skilled in Python, SQL, data analysis, machine learning, and full-stack development. Hands-on experience through internships, vocational training, and projects in cybersecurity and data visualization.",
+
   about:
-    "Certified vocational trainee at Bhilai Steel Plant (SAIL) with project delivery in cybersecurity and data visualization. I have worked on log analysis, data pipelines, and full-stack development through internship and training programs.",
+    "Undergraduate student at Shri Shankaracharya Technical Campus with practical experience in Python, data analysis, cybersecurity log analysis, and full-stack development. Certified vocational trainee at Bhilai Steel Plant (SAIL) with project experience in building data-driven cybersecurity solutions. Also completed a Full Stack Web Development internship and the Lenovo LEAP NextGen Scholar Program.",
+
   location: "Bhilai, Chhattisgarh",
+
   email: "kesharsahu3085@gmail.com",
+
   phone: "+91 8224824953",
-  resumeUrl: "/assets/Keshar_Resume.pdf",
+
+  resumeUrl: "/assets/kesharesume.pdf",
+
   codingProfiles: {
     github: "https://github.com/keshar3085",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/keshar-sahu-6710452a2/",
     leetcode: "https://leetcode.com/u/kesharsahu30/",
   },
+
   skills: [
-    { title: "Languages", skills: ["Python", "JavaScript", "c", "c++"] },
-    { title: "Frontend", skills: ["HTML", "CSS", "JavaScript"] },
-    { title: "Backend", skills: ["Python"] },
-    { title: "Databases", skills: ["MongoDB", "SQL"] },
-    { title: "Tools", skills: ["Git", "GitHub", "VS Code",] },
+    {
+      title: "Languages",
+      skills: ["Python", "JavaScript", "SQL"],
+    },
+    {
+      title: "Frontend",
+      skills: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      title: "Backend",
+      skills: ["Python", "Streamlit"],
+    },
+    {
+      title: "Databases",
+      skills: ["MongoDB", "SQL"],
+    },
+    {
+      title: "Tools",
+      skills: ["Git", "GitHub", "VS Code"],
+    },
     {
       title: "Technologies",
-      skills: ["Streamlit", "Pandas", "NumPy", "Plotly", "Data Analysis", "Cybersecurity Log Analysis", "Data Visualization"],
-    }
+      skills: [
+        "Pandas",
+        "NumPy",
+        "Plotly",
+        "Data Analysis",
+        "Data Visualization",
+        "Machine Learning",
+        "Cybersecurity",
+        "Full-Stack Development",
+      ],
+    },
   ],
+
   experience: [
     {
-      company: "Jyesta Corporate Entity (Remote)",
+      company: "Jyesta Corporate Entity",
       role: "Full Stack Web Development Intern",
       duration: "Jun 2025 - Aug 2025",
       responsibilities: [
-        "Completed a 2-month full stack web development internship with hands-on training in frontend and backend technologies.",
+        "Completed a 2-month Full Stack Web Development internship with hands-on experience in frontend and backend technologies.",
       ],
       achievements: [
-        "Earned NSDC-validated Training and Internship Certifications.",
-        "Certificate ID: JC-20250724-S JT0Q65",
+        "Earned NSDC-validated Training and Internship Certification.",
       ],
     },
+
     {
-      company: "Bhilai Steel Plant (SAIL) - HRDP, Bhilai",
+      company: "Bhilai Steel Plant (SAIL) - HRDP",
       role: "Project-Based Vocational Trainee",
-      duration: "Apr 2025 - Aug 2025",
+      duration: "Aug 2025",
       responsibilities: [
-        "Developed Cybersail Log Analysis Dashboard, a Streamlit-based tool to process SSH logs, detect suspicious behavior, and visualize cybersecurity insights for BSP.",
-        "Built a data pipeline using Python, Pandas, NumPy, and Plotly for threat detection and log monitoring.",
+        "Developed a Streamlit-based SSH Log Analysis Dashboard to detect suspicious login behavior and visualize cybersecurity insights.",
+        "Built data processing pipelines using Python, Pandas, NumPy, and Plotly for log analysis and threat detection.",
       ],
       achievements: [
         "Performance Rating: Excellent",
         "Registration Number: P.25/5541",
       ],
     },
+
+    {
+      company: "Lenovo LEAP - NextGen Scholar Program",
+      role: "Artificial Intelligence Learner",
+      duration: "2025",
+      responsibilities: [
+        "Completed an Artificial Intelligence learning program through the Lenovo LEAP NextGen Scholar Program.",
+      ],
+      achievements: [
+        "Achieved Grade A in the program.",
+      ],
+    },
   ],
+
   education: [
     {
       degree: "B.Tech in Computer Science and Engineering (Data Science)",
@@ -118,38 +164,68 @@ export const portfolioData: PortfolioData = {
       duration: "2023 - 2027",
     },
     {
-      degree: "12th, CBSE | 70.00%",
+      degree: "12th, CBSE (PCM with Computer Science) | 68.00%",
       institution: "Delhi Public School, Bhilai",
-      duration: "2021 - 2022",
+      duration: "2022 - 2023",
     },
     {
       degree: "10th, CBSE | 85.00%",
       institution: "Delhi Public School, Bhilai",
-      duration: "2019 - 2020",
+      duration: "2020 - 2021",
     },
   ],
+
   projects: [
     {
       title: "Cybersail Log Analysis Dashboard",
       description:
-        "Built a cybersecurity dashboard for BSP to analyze SSH authentication logs, detect brute-force attempts, and visualize threat patterns in real time.",
-      tech: ["Python", "MongoDB", "Streamlit", "HTML", "CSS", "JavaScript", "Pandas", "NumPy", "Plotly"],
+        "Built a cybersecurity dashboard for BSP to analyze SSH authentication logs, identify brute-force attempts, detect suspicious activity, and visualize threat patterns.",
+      tech: [
+        "Python",
+        "MongoDB",
+        "Streamlit",
+        "Pandas",
+        "NumPy",
+        "Plotly",
+      ],
+      github: "https://github.com/keshar3085/cybersecurity-dashboard",
+      live: "https://cybersecurity-dashboard-hgshdycydfye2gfipclbby.streamlit.app/",
     },
+
+    {
+      title: "Smart Inventory Management System",
+      description:
+        "Developed a smart inventory management solution during the IIIT Naya Raipur Hackathon to streamline inventory tracking, stock monitoring, and inventory organization.",
+      tech: [
+        "Python",
+        "Web Development",
+        "Database",
+      ],
+    },
+
     {
       title: "Satellite Image Super Resolution",
       description:
-        "Developed a super resolution model using SRGAN to transform low-resolution satellite images into high-resolution outputs.",
-      tech: ["Python", "GAN", "SRGAN", "Deep Learning"],
+        "Developed an SRGAN-based deep learning model to enhance low-resolution satellite images into high-resolution outputs.",
+      tech: [
+        "Python",
+        "GAN",
+        "SRGAN",
+        "Deep Learning",
+      ],
     },
   ],
+
   certifications: [
     "Vocational Training Certificate - Bhilai Steel Plant (SAIL), Aug 2025",
     "NSDC-validated Training and Internship Certification - Jyesta Corporate Entity",
+    "Lenovo LEAP NextGen Scholar Program - Grade A",
   ],
+
   achievements: [
-    "Certified vocational trainee at Bhilai Steel Plant (SAIL)",
+    "Track Winner - IIIT Naya Raipur Hackathon",
     "Project report on Cybersail Log Analysis Dashboard rated Excellent",
-    "SAIL HRDP Regn. No. P.25/5541",
-    "Delivered cybersecurity and data visualization project for BSP",
+    "Certified vocational trainee at Bhilai Steel Plant (SAIL)",
+    "Achieved Grade A in Lenovo LEAP NextGen Scholar Program",
   ],
 };
