@@ -73,7 +73,7 @@ export const portfolioData: PortfolioData = {
 
   phone: "+91 8224824953",
 
-  resumeUrl: "/assets/kesharesume.pdf",
+  resumeUrl: "/kesharesume.pdf",
 
   codingProfiles: {
     github: "https://github.com/keshar3085",
